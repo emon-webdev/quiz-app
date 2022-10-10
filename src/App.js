@@ -13,13 +13,16 @@ function App() {
       element: <Root />,
       errorElement: <ErrorPage />,
       children: [
-        {
-          path: "/",
-          element: <Topics />,
-        },
+        // {
+        //   path: "/",
+        //   element: <Topics />,
+        // },
         {
           path: "/topics",
           element: <Topics />,
+          loader:() => {
+            return fetch('https://openapi.programming-hero.com/api/quiz')
+          }
         },
         {
           path: "/statistics",
@@ -34,7 +37,7 @@ function App() {
   ]);
 
   return (
-    <div className="App">
+    <div className="md:w-11/12 px-4 mx-auto">
       <RouterProvider router={router} />
     </div>
   );
