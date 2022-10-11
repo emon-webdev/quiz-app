@@ -1,9 +1,10 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext } from "react";
+import { TopicContext } from "../Root";
 import Topic from "./Topic";
 
 const Topics = () => {
-  const topicsData = useLoaderData({});
+  const topicsData = useContext(TopicContext)
+
   const topics = topicsData.data;
 
   console.log(topics);

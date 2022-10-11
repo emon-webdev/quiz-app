@@ -12,7 +12,7 @@ console.log(topic)
         <div class="card-body flex-row justify-between">
           <h2 class="card-title">{name} <span>{total}</span></h2>
           <div class="card-actions">
-            <button class="btn btn-primary">Buy Now</button>
+            <button class="btn btn-primary">Start </button>
           </div>
         </div>
       </div>

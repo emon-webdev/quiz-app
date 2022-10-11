@@ -11,6 +11,9 @@ const Header = () => {
         <div class="flex-none">
           <ul class="menu menu-horizontal p-0">
             <li>
+              <NavLink to='/home'>Home</NavLink>
+            </li>
+            <li>
               <NavLink to='/topics'>Topics</NavLink>
             </li>
             <li>
