@@ -1,13 +1,17 @@
+import { EyeIcon } from "@heroicons/react/24/solid";
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 const TopicQuiz = () => {
   const quizLoad = useLoaderData();
   const quizData = quizLoad.data;
   const quizQuestion = quizData.questions;
   const [count, setCount] = useState(0);
+  const [rightAnswer, setRightAnswer] = useState("");
 
+  console.log(rightAnswer);
   console.log(count);
 
   return (
@@ -20,9 +24,17 @@ const TopicQuiz = () => {
       <div className="question">
         {quizQuestion.map((singleQus, index) => (
           <div className="bg-base-100 shadow-lg py-5 px-2 rounded-md mb-6">
-            <h2 className="text-center mb-2 text-xl font-semibold text-blue-600">
-              Quiz: {index + 1} {singleQus.question}
+            <h2 className="flex justify-between items-center mb-2 text-xl font-semibold text-blue-600">
+              <span className="w-11/12">
+                Quiz: {index + 1} {singleQus.question}
+              </span>
+              <button onClick={() => {
+                toast("Your Answer is Right!");
+              }}>
+                <EyeIcon className="h-6 w-6 text-blue-500" />
+              </button>
             </h2>
+
             <div className="options grid md:grid-cols-2 gap-4 p-4 text-left">
               {singleQus.options.map((option, index) => (
                 <div className="form-control" key={index}>
@@ -33,9 +45,10 @@ const TopicQuiz = () => {
                       onChange={() => {
                         if (singleQus.correctAnswer === option) {
                           setCount(count + 1);
-                          toast("congratulations!you selected Wrong Answer ");
+                          setRightAnswer(option);
+                          toast("Your Answer is Right!");
                         } else {
-                          toast("Sorry! you selected wrong Answer");
+                          toast("Sorry! Your Answer is wrong!");
                         }
                       }}
                       className="radio checked:bg-red-500"
@@ -45,13 +58,6 @@ const TopicQuiz = () => {
 
                   <ToastContainer />
                 </div>
-                // <div
-                //   onClick={() => handleAddToClick(option)}
-                //   className="border text-xl rounded-md p-4 text-left cursor-pointer"
-                // >
-                //   <span className=" text-blue-600">{index + 1}. </span>
-                //   <span>{option}</span>
-                // </div>
               ))}
             </div>
           </div>
