@@ -1,6 +1,4 @@
-# Project Name
-
-## Quiz App Assignment 9
+# Project Name : Quiz App Assignment 9
 
 # Live Website
 

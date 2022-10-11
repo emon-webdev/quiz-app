@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
     CartesianGrid,
     Legend,
@@ -8,61 +8,23 @@ import {
     XAxis,
     YAxis
 } from "recharts";
+import { TopicContext } from "../Root";
 
 const Statistics = () => {
-  const data = [
-    {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: "Page F",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: "Page G",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
+  const topicsData = useContext(TopicContext);
+  const topics = topicsData.data;
+
 
   return (
     <div className="mx-auto text-center py-[100px]">
-      <h2 className="text-4xl mb-8 text-center text-blue-700 font-bold">Statistics Chart</h2>
+      <h2 className="text-4xl mb-8 text-center text-blue-700 font-bold">
+        Statistics Chart
+      </h2>
       <div className="mx-auto text-center">
         <LineChart
           width={500}
           height={300}
-          data={data}
+          data={topics}
           margin={{
             top: 5,
             right: 30,
@@ -81,7 +43,7 @@ const Statistics = () => {
             stroke="#8884d8"
             activeDot={{ r: 8 }}
           />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="total" stroke="#8884d8" />
         </LineChart>
       </div>
     </div>

@@ -9,16 +9,14 @@ const TopicQuiz = () => {
   const quizData = quizLoad.data;
   const quizQuestion = quizData.questions;
   const [count, setCount] = useState(0);
-  const [rightAnswer, setRightAnswer] = useState("");
-
-  console.log(rightAnswer);
-  console.log(count);
+  
+ 
 
   return (
     <div className="py-5 pb-9 md:w-9/12 mx-auto">
       <div className="text-center py-4">
         <h3 className="text-4xl text-blue-700 font-bold">
-          Quiz of {quizData.name}
+          Quiz of {quizData.name} || <span className="tex-3xl">Right Answer: {count}</span>
         </h3>
       </div>
       <div className="question">
@@ -29,7 +27,7 @@ const TopicQuiz = () => {
                 Quiz: {index + 1} {singleQus.question}
               </span>
               <button onClick={() => {
-                toast("Your Answer is Right!");
+                toast(singleQus.correctAnswer)
               }}>
                 <EyeIcon className="h-6 w-6 text-blue-500" />
               </button>
@@ -45,7 +43,6 @@ const TopicQuiz = () => {
                       onChange={() => {
                         if (singleQus.correctAnswer === option) {
                           setCount(count + 1);
-                          setRightAnswer(option);
                           toast("Your Answer is Right!");
                         } else {
                           toast("Sorry! Your Answer is wrong!");
@@ -55,7 +52,6 @@ const TopicQuiz = () => {
                     />
                     <span className="label-text ml-2">{option}</span>
                   </label>
-
                   <ToastContainer />
                 </div>
               ))}

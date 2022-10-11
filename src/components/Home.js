@@ -6,7 +6,6 @@ import Topic from "./Topic";
 
 const Home = () => {
   const topicsData = useContext(TopicContext);
-
   const topics = topicsData.data;
   return (
     <div className="mb-9">
