@@ -5,7 +5,7 @@ const Topic = ({ topic }) => {
   const { id, name, logo, total } = topic;
   return (
     <div className="py-9">
-      <div className="card w-full md:w-96 rounded-md bg-blue-100 shadow-xl">
+      <div className="card w-full rounded-md bg-blue-100 shadow-xl">
         <figure>
           <img src={logo} alt="Shoes" />
         </figure>
