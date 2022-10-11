@@ -24,7 +24,7 @@ const TopicQuiz = () => {
           <div className="bg-base-100 shadow-lg py-5 px-2 rounded-md mb-6">
             <h2 className="flex justify-between items-center mb-2 text-xl font-semibold text-blue-600">
               <span className="w-11/12">
-                Quiz: {index + 1} {(singleQus.question.slice(3, singleQus.question.length))}
+                Quiz: {index + 1} {(singleQus.question.replace(/<[^>]+>/g, ''))}
               </span>
               <button onClick={() => {
                 toast(singleQus.correctAnswer)
