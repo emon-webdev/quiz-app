@@ -4,7 +4,7 @@ import Blog from "./components/Blog";
 import ErrorPage from "./components/ErrorPage";
 import Home from "./components/Home";
 import Statistics from "./components/Statistics";
-import Topics from "./components/Topics";
+import TopicQuiz from "./components/TopicQuiz";
 import Root from "./Root";
 
 function App() {
@@ -26,8 +26,11 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/topics",
-          element: <Topics />,
+          path: "/topic/:id",
+          element: <TopicQuiz />,
+          loader:({params}) => {
+            return fetch(`https://openapi.programming-hero.com/api/quiz/${params.id}`)
+          }
         },
         {
           path: "/statistics",

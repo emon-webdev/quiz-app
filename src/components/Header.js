@@ -6,15 +6,12 @@ const Header = () => {
     <div>
       <div class="navbar bg-base-100">
         <div class="flex-1">
-          <NavLink to='/' class="btn btn-ghost normal-case text-xl">Quiz App</NavLink>
+          <NavLink to='/' className="text-3xl text-blue-700 font-bold">Quiz App</NavLink>
         </div>
         <div class="flex-none">
           <ul class="menu menu-horizontal p-0">
             <li>
               <NavLink to='/home'>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to='/topics'>Topics</NavLink>
             </li>
             <li>
               <NavLink to='/statistics'>Statistics</NavLink>
