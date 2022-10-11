@@ -24,7 +24,7 @@ const TopicQuiz = () => {
           <div className="bg-base-100 shadow-lg py-5 px-2 rounded-md mb-6">
             <h2 className="flex justify-between items-center mb-2 text-xl font-semibold text-blue-600">
               <span className="w-11/12">
-                Quiz: {index + 1} {singleQus.question}
+                Quiz: {index + 1} {(singleQus.question.slice(3, singleQus.question.length))}
               </span>
               <button onClick={() => {
                 toast(singleQus.correctAnswer)
@@ -34,8 +34,10 @@ const TopicQuiz = () => {
             </h2>
 
             <div className="options grid md:grid-cols-2 gap-4 p-4 text-left">
+
               {singleQus.options.map((option, index) => (
                 <div className="form-control" key={index}>
+
                   <label className="label justify-start cursor-pointer">
                     <input
                       type="radio"
@@ -52,9 +54,11 @@ const TopicQuiz = () => {
                     />
                     <span className="label-text ml-2">{option}</span>
                   </label>
+
                   <ToastContainer />
                 </div>
               ))}
+              
             </div>
           </div>
         ))}

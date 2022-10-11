@@ -34,7 +34,7 @@ const Statistics = () => {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis dataKey="total" />
           <Tooltip />
           <Legend />
           <Line
