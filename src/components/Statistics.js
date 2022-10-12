@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import {
-    CartesianGrid,
-    Legend,
-    Line,
-    LineChart,
-    ResponsiveContainer,
-    Tooltip,
-    XAxis,
-    YAxis
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis
 } from "recharts";
 import { TopicContext } from "../Root";
 
@@ -40,7 +40,7 @@ const Statistics = () => {
             <Legend />
             <Line
               type="monotone"
-              dataKey="topics"
+              dataKey="total"
               stroke="#8884d8"
               activeDot={{ r: 8 }}
             />
